@@ -2,10 +2,6 @@
     grid-area: c ;
     background-color: salmon;
 }
-.content img {
-
+.content .main_photo img{
     width: 70vw;
-}
-.item {
-    color: blue
 }
