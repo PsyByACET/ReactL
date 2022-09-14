@@ -1,0 +1,12 @@
+.nav {
+    grid-area: n;
+    background-color: dodgerblue;
+}
+.item a {
+    color: wheat;
+    text-decoration: none;
+    font-size: 22px;
+}
+.item.active a {
+    color: red;
+}

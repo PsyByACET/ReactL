@@ -1,6 +1,8 @@
+import s from "./Profile.module.css";
+
 const Profile = () => {
     return (
-        <div className="content">
+        <div className={s.content}>
             <div>
                 <img src="https://browsecat.net/sites/default/files/3440x1440-mountain-wallpapers-98041-878818-4684520.png" alt=""/>
             </div>
@@ -12,10 +14,10 @@ const Profile = () => {
                 <div className="div">
                     new post
                 </div>
-                <div>
+                <div className={s.item}>
                     post#1
                 </div>
-                <div>
+                <div className={s.item}>
                     post#2
                 </div>
             </div>

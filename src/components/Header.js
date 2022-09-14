@@ -1,6 +1,8 @@
+import s from "./Header.module.css";
+
 const Header = () => {
     return (
-        <header className="header">
+        <header className={s.header}>
             <img src="https://cdn.mtgame.ru/logo_sber.png" alt=""/>
         </header>
     );
