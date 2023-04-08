@@ -1,0 +1,34 @@
+
+.userlink {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+}
+.userlink:hover{
+    background-color: #ffc0cb;
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+.userlink_active{
+    color: gold;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    background-color: #334343;
+    border-radius: 5px;
+    transition: 0.6s;
+
+}
+.username {
+    margin-left: 20px;
+}
+
+.user__photo {
+    width: 80px;
+    border-radius: 100px;
+}
+
+

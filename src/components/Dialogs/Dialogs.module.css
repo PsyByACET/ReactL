@@ -5,20 +5,10 @@
 a {
     text-decoration: none;
 }
+.users {
+    padding: 20px;
+}
 
-.dialogsItem{
-    padding: 10px;
-    text-decoration: none;
-
-}
-.dialogsItem dialog NavLink{
-    color: gold;
-    font-size: 50px;
-    text-decoration: none;
-}
-.dialogsItem .active{
-    color: gold;
-}
 .messages {
     padding: 10px;
 }

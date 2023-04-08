@@ -1,51 +1,40 @@
 import React from "react";
 import s from "./Dialogs.module.css"
-import {NavLink} from "react-router-dom";
+import Message from "./Message/Message";
+import DialogItem from "./DialogItem/DialogItem";
+import {sendMessageCreater, updateNewMessageBodyCreater} from "../../Redux/dialogs-reducer";
 
-const DialogItem = (props) => {
-    let path = "/dialogs/" + props.id_user
-    return <div className={s.dialog}>
-        <NavLink to={path} className={NavData => NavData.isActive ? s.active : s.dialog}> {props.name} </NavLink>
-    </div>
-}
+const Dialogs = (props) => {
 
-const Message = (props) => {
+    console.log(props.dialogsPage);
 
-    return <div className={s.message}>
-        {props.message}
-    </div>
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id_user={d.id}/>)
+    let messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message}/>)
+    let newMessageBody = props.dialogsPage.newMessageBody;
 
-}
+    let onSendMessageClick = () => {
+        props.onSendMessageClick()
+        // props.dispatch(sendMessageCreater())
+    }
+    let onNewMessageChanges = (e) => {
 
-const Dialogs = () => {
-
-    let dialogs = [
-        {id: 1, name: "Andry"},
-        {id: 2, name: "Vlad"},
-        {id: 3, name: "Bogdan"},
-        {id: 4, name: "Dimas"},
-        {id: 5, name: "Leha"}
-    ]
-
-    let messages = [
-        {id: 1, message: "hi"},
-        {id: 2, message: "how are you"},
-        {id: 3, message: "im fine"},
-        {id: 4, message: "kek"},
-        {id: 5, message: "Leha pidor"}
-    ]
-
-    let dialogsElements = dialogs.map(d => <DialogItem name={d.name} id_user={d.id}/>)
-    let messagesElements = messages.map(m => <Message message={m.message}/>)
+        let body = e.target.value;
+        props.onNewMessageChanges(body)
+        // props.dispatch(updateNewMessageBodyCreater(body))
+    }
 
     return (
         <div className={s.dialogs}>
-            <div className={s.dialogsItem}>
+            <div className={s.users}>
                 {dialogsElements}
             </div>
 
             <div className={s.messages}>
-                {messagesElements}
+                <div>{messagesElements}</div>
+                <div>
+                    <div><textarea value={newMessageBody} onChange={onNewMessageChanges} placeholder={"ender you message"}></textarea></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
             </div>
         </div>
 
